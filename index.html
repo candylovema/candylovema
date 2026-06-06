@@ -96,8 +96,8 @@
             ExternalLink: { icon: ExternalLink, color: 'opacity-70' }
         };
 
-        // 🔥 更新為最新給定的 GAS_URL
-        const _0x4a21 = "aHR0cHM6Ly9zY3JpcHQuZ29vZ2xlLmNvbS9tYWNyb3Mvcy9BS2Z5Y2J4MG4yX0tOVlNNdVBRY21hOE1IZG4yb0t0SS1ncUFZMjhzcWROQ3VrYnFXTGg5My1rTFFaMVJnbkdaSWRmV1VOSm4vZXhlYw==";
+        // 🔥 更新為最新給定的 GAS_URL 編碼 (GAS_UR)
+        const _0x4a21 = "aHR0cHM6Ly9zY3JpcHQuZ29vZ2xlLmNvbS9tYWNyb3Mvcy9BS2Z5Y2J6VmZHV2dqNWcyWjljekRMUk9Fb3lBNGRLN1JTT3V5R0lBMW52UXJlbWN0eGt1UEFHSV9IN2lMUjFZTmtJUjVHSU4vZXhlYw==";
         const GAS_URL = atob(_0x4a21);
         const SECRET_KEY = "cd6ca599bdbb083d34a3012b84071c848cc4bca0698a53c3cc65a2c296dd3ddf";
 
@@ -236,7 +236,7 @@
                 try {
                     const currentOrigin = window.location.origin;
                     const safeOrigin = currentOrigin.includes("usercontent.goog") 
-                        ? "https://theliberalartspress.github.io" 
+                        ? "https://candylovema.github.io" 
                         : currentOrigin;
 
                     const payloadObj = { 
@@ -270,13 +270,13 @@
                     
                     if (data.status === 'error') {
                         console.error("後端拒絕請求:", data.msg);
-                        alert("API 執行失敗: " + data.msg);
+                        showMsg("API 執行失敗: " + data.msg); // 用自訂 Toast 取代 alert()
                     }
                     
                     return data;
                 } catch (e) {
                     console.error("GAS Sync Error:", e);
-                    alert("網路連線錯誤: " + e.toString());
+                    showMsg("網路連線錯誤: " + e.toString()); // 用自訂 Toast 取代 alert()
                     return { status: 'error', msg: e.toString() };
                 }
             };
